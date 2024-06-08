@@ -1,4 +1,5 @@
 import Box from "./Box.js";
+import Vector from "./Vector.js";
 
 
 
@@ -16,20 +17,30 @@ const height = canvas.height;
 
 
 const ctx = canvas.getContext("2d");
-if(!ctx) throw new Error("Unable to get context!");
+if(ctx === null) throw new Error("Unable to get context!");
 
-
-
-// bg
-ctx.fillStyle = "#000000";
-ctx.fillRect(0, 0, width, height);
 
 
 const box = new Box(100);
-box.x = (width - box.size) / 2;
-box.y = (height - box.size) / 2;
+box.pos.x = (width - box.size) / 2;
 
 
 
-ctx.fillStyle = "#ff0000";
-ctx.fillRect(box.x, box.y, box.size, box.size);
+function draw() {
+	// ctx is possibly null for some reason, will deal with later
+	ctx!.fillStyle = "#000000";
+	ctx!.fillRect(0, 0, width, height);
+
+	box.accel = new Vector(0, 0.2);
+	box.update();
+
+	ctx!.fillStyle = "#ff0000";
+	ctx!.fillRect(box.pos.x, box.pos.y, box.size, box.size);
+
+
+	requestAnimationFrame(draw);
+}
+
+
+
+requestAnimationFrame(draw);
