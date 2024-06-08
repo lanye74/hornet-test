@@ -17,6 +17,11 @@ export default class Box {
 		this.accel = new Vector();
 	}
 
+	draw(context: CanvasRenderingContext2D) {
+		context.fillStyle = "#ff0000";
+		context.fillRect(this.pos.x, this.pos.y, this.size, this.size);
+	}
+
 	update() {
 		this.vel.add(this.accel);
 		this.pos.add(this.vel);
