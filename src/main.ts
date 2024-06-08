@@ -1,4 +1,5 @@
 import Box from "./Box.js";
+import InputManager from "./InputManager.js";
 import Vector from "./Vector.js";
 
 
@@ -23,6 +24,10 @@ if(ctx === null) throw new Error("Unable to get context!");
 
 const box = new Box(100);
 box.pos.x = (width - box.size) / 2;
+box.accel = new Vector(0, 0.2);
+
+
+const inputManager = new InputManager();
 
 
 
@@ -31,7 +36,11 @@ function draw() {
 	ctx!.fillStyle = "#000000";
 	ctx!.fillRect(0, 0, width, height);
 
-	box.accel = new Vector(0, 0.2);
+
+	if(inputManager.keys.Space) {
+		box.vel.y = -10;
+	}
+
 	box.update();
 
 	ctx!.fillStyle = "#ff0000";
