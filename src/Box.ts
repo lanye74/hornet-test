@@ -9,6 +9,8 @@ export default class Box {
 	vel: Vector;
 	accel: Vector;
 
+	grounded!: boolean;
+
 	constructor(size: number) {
 		this.size = size;
 
@@ -22,8 +24,23 @@ export default class Box {
 		context.fillRect(this.pos.x, this.pos.y, this.size, this.size);
 	}
 
-	update() {
+	jump(deltaTime: number) {
+		if(this.grounded) {
+			console.log(deltaTime)
+			this.vel.y = -1.5 * deltaTime;
+		}
+	}
+
+	update(deltaTime: number) {
 		this.vel.add(this.accel);
+
+
+		const max = deltaTime * 200;
+
+		// small sanity check
+		if(Math.abs(this.vel.x) > max) this.vel.x = max;
+		if(Math.abs(this.vel.y) > max) this.vel.y = max;
+
 		this.pos.add(this.vel);
 	}
 }

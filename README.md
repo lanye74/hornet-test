@@ -18,7 +18,7 @@ _Not that it really matters, but this style of list is inspired by [sphaerophori
 | ------------------------------------------------------------- | ----------- |
 | Draw a square                                                 | 00:08:00    |
 | Make the square fall, and jump                                | 00:28:30    |
-| Use deltaTime for accurate timings + collision w/ canvas      | ??:??:??    |
+| Use deltaTime for accurate timings + collision w/ canvas      | 01:08:00    |
 | Load and draw images to the screen                            | ??:??:??    |
 | Make the square a Hornet sprite                               | ??:??:??    |
 | Animate the Hornet sprite + movement                          | ??:??:??    |
