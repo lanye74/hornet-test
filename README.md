@@ -16,7 +16,7 @@ _Not that it really matters, but this style of list is inspired by [sphaerophori
 
 | Task                                                          | Approx Time |
 | ------------------------------------------------------------- | ----------- |
-| Draw a square                                                 | ??:??:??    |
+| Draw a square                                                 | 00:08:00    |
 | Make the square fall, and jump                                | ??:??:??    |
 | Use deltaTime for accurate timings + collision w/ canvas      | ??:??:??    |
 | Load and draw images to the screen                            | ??:??:??    |
